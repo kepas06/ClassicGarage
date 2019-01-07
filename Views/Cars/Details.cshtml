@@ -8,6 +8,7 @@
 <div>
 
     <hr />
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Brand)
@@ -49,13 +50,13 @@
             @Html.DisplayFor(model => model.Series)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Photo)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Photo)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Buy_Date)
@@ -78,16 +79,22 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Buy_Cost)
+            @Html.DisplayFor(model => model.Buy_Cost) zł
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sell_Cost)
+            @Html.DisplayNameFor(model => model.Sell_Cost) zł
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Sell_Cost)
         </dd>
+        <dd >
+            <img src="@Url.Content("~/Content/Photo/CarsPhotos/"+Model.Photo)" alt="..." class="img-responsive">
+
+        </dd>
+
+
 
         @*<dt>
             @Html.DisplayNameFor(model => model.OwnerID)
@@ -96,8 +103,10 @@
         <dd>
             @Html.DisplayFor(model => model.OwnerID)
         </dd>*@
-
+     
     </dl>
+
+
 </div>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary " }) 

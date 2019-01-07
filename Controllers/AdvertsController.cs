@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using ClassicGarage.DAL;
 using ClassicGarage.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ClassicGarage.Controllers
 {
@@ -20,6 +21,9 @@ namespace ClassicGarage.Controllers
         public ActionResult Index()
         {
             var notice = db.Notice.Include(a => a.Car);
+            var e_mail = User.Identity.GetUserName();
+            
+            ViewBag.User = e_mail;
             return View(notice.ToList());
         }
 

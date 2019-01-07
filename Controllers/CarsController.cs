@@ -21,8 +21,10 @@ namespace ClassicGarage.Controllers
         // GET: Cars
         public ActionResult Index()
         {
-            var car = db.Car.Include(c => c.Owner);
-            return View(db.Car.ToList());
+            var e_mail = User.Identity.GetUserName();
+            var query = db.Owner.Where(s => s.Email == e_mail).Select(s => s.ID).First();
+            var car = db.Car.Where(s=> s.OwnerID ==query);
+            return View(car.ToList());
         }
 
         // GET: Cars/Details/5

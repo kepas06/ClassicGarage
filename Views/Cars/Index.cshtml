@@ -7,7 +7,8 @@
 <h2>Twoje Samochody</h2>
 
 <p>
-    @Html.ActionLink("Dodaj", "Create",null, new { @class = "btn btn-primary " })
+    @Html.ActionLink("Dodaj", "Create", null, new { @class = "btn btn-primary " })
+    <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
 </p>
 <table class="table">
     <tr>
@@ -20,7 +21,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Year)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.VIN)
         </th>
         <th>
@@ -34,18 +35,27 @@
             @Html.DisplayNameFor(model => model.Sell_Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Buy_Cost)
+            @Html.DisplayNameFor(model => model.Buy_Cost) 
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Sell_Cost)
-        </th>
+        </th>*@
         @*<th>
             @Html.DisplayNameFor(model => model.OwnerID)
         </th>*@
 
         <th>
             @Html.DisplayNameFor(model => model.Photo)
-        </th>
+
+            @foreach (var item in Model)
+            {
+            <div class="toright">
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.ID }, new { @class = "btn btn-primary " })
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }, new { @class = "btn btn-primary " })
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ID }, new { @class = "btn btn-primary " })
+            </div>
+            }
+            </th>
         <th></th>
     </tr>
 
@@ -60,7 +70,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Year)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.VIN)
         </td>
         <td>
@@ -74,24 +84,26 @@
             @Html.DisplayFor(modelItem => item.Sell_Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Buy_Cost)
+            @Html.DisplayFor(modelItem => item.Buy_Cost) zł
         </td>
 
         <td>
-            @Html.DisplayFor(modelItem => item.Sell_Cost)
-        </td>
+            @Html.DisplayFor(modelItem => item.Sell_Cost) zł
+        </td>*@
         @*<td>
             @Html.DisplayFor(modelItem => item.OwnerID)
         </td>*@
         <td class="thumbnail">
             <img src="@Url.Content("~/Content/Photo/CarsPhotos/"+item.Photo)" alt="..." class="img-responsive">
+
         </td>
-        <td>
-            @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }, new { @class = "btn btn-primary " })
+        @*<td>
+
             @Html.ActionLink("Szczegóły", "Details", new { id = item.ID }, new { @class = "btn btn-primary " })
+            
+            @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }, new { @class = "btn btn-primary " })
             @Html.ActionLink("Usuń", "Delete", new { id = item.ID }, new { @class = "btn btn-primary " })
-            <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
-        </td>
+        </td>*@
     </tr>
 }
 

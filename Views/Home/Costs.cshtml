@@ -2,6 +2,60 @@
 @{
     ViewBag.Title = "Costs";
 }
+<h2>Poniesione Koszty. Całość wynosi = @ViewBag.totalCosts zł  </h2>
 
-<h2>Costs</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nazwa Naprawy
+        </th>
+        <th>
+            Cena
+        </th>
+    </tr>
+
+    <tr>
+        @foreach (var elem in ViewBag.RepairsNames)
+        {
+            <td>
+                @elem
+            </td>
+        }
+        @foreach (var elem in ViewBag.Repairs)
+        {
+            <td>
+                @elem
+            </td>
+        }
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            Nazwa Części
+        </th>
+        <th>
+            Cena
+        </th>
+    </tr>
+
+    <tr>
+        @foreach (var elem in ViewBag.PartsNames)
+        {
+            <td>
+
+                @elem
+
+            </td>
+        }
+        @foreach (var elem in ViewBag.Parts)
+        {
+            <td>
+                @elem
+            </td>
+        }
+    </tr>
+</table>
 

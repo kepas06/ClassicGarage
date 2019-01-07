@@ -8,25 +8,26 @@
 
 <p>
     @Html.ActionLink("Dodaj", "Create", null, new { @class = "btn btn-primary " })
+    <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Car.Brand)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Active)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
 
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Email)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.phone)
         </th>
@@ -43,21 +44,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Car.Brand)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Active)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Photo)
-            </td>
-            <td>
+          
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Email)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.phone)
             </td>
@@ -65,10 +64,14 @@
                 <img src="@Url.Content("~/Content/Photo/CarsPhotos/"+item.Photo)" alt="..." class="img-responsive">
             </td>
             <td>
-                @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }, new { @class = "btn btn-primary " })
+
                 @Html.ActionLink("Szczegóły", "Details", new { id = item.ID }, new { @class = "btn btn-primary " })
+             @if(item.Email == ViewBag.User) { 
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }, new { @class = "btn btn-primary " })
+
                 @Html.ActionLink("Usuń", "Delete", new { id = item.ID }, new { @class = "btn btn-primary " })
-                <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
+                }
+                
             </td>
         </tr>
     }

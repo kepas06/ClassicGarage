@@ -39,16 +39,16 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Price) zł
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Photo)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Photo)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Email)
@@ -57,11 +57,14 @@
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
+        <dd class="thumbnail">
+            <img src="@Url.Content("~/Content/Photo/CarsPhotos/"+Model.Photo)" alt="..." class="img-responsive">
+        </dd>
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary " })
-    , new { @class = "btn btn-primary " }
+    
     <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
 </p>

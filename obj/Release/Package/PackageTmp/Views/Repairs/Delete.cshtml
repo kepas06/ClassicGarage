@@ -1,0 +1,54 @@
+﻿@model ClassicGarage.Models.RepairModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Jesteś pewien że chcesz usunąć tą naprawę ?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Car.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> 
+            <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
+        </div>
+    }
+</div>

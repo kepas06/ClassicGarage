@@ -1,0 +1,58 @@
+﻿@model ClassicGarage.Models.CarParts
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Szczegóły Części</h2>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost_Buy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost_Buy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost_Sell)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost_Sell)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buy_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buy_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sell_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sell_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary " })
+
+    <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
+</p>

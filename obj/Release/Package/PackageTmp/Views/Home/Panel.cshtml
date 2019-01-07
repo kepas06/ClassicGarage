@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Panel";
+}
+
+<h2>Panel Użytkownika</h2>
+@if (Request.IsAuthenticated)
+{
+    <div>
+        @Html.ActionLink("Twoje Dane", "Details", "Owners", new { id =ViewBag.OwnerID},null)
+    </div>
+    <div>
+        @Html.ActionLink("Samochody", "Index", "Cars")
+    </div>
+    <div>
+        @Html.ActionLink("Ogłoszenia", "Index", "Adverts")
+    </div>
+    <div>
+        @Html.ActionLink("Części", "Index", "CarParts")
+    </div>
+    <div>
+        @Html.ActionLink("Naprawy", "Index", "Repairs")
+    </div>
+
+}
+
+
+

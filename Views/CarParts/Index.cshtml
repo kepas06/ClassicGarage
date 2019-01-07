@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ClassicGarage.Models.CarParts>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Twoje Części</h2>
+
+<p>
+    @Html.ActionLink("Dodaj", "Create", null, new { @class = "btn btn-primary " })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RepairID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost_Buy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost_Sell)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Buy_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sell_Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RepairID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost_Buy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost_Sell)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Buy_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sell_Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }, new { @class = "btn btn-primary " })
+            @Html.ActionLink("Szczegóły", "Details", new { id = item.ID }, new { @class = "btn btn-primary " })
+            @Html.ActionLink("Usuń", "Delete", new { id = item.ID }, new { @class = "btn btn-primary " })
+            <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
+        </td>
+    </tr>
+    }
+
+</table>

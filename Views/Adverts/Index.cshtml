@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ClassicGarage.Models.Adverts>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Oferty</h2>
+
+<p>
+    @Html.ActionLink("Dodaj", "Create", null, new { @class = "btn btn-primary " })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td class="thumbnail">
+                <img src="@Url.Content("~/Content/Photo/CarsPhotos/"+item.Photo)" alt="..." class="img-responsive">
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }, new { @class = "btn btn-primary " })
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.ID }, new { @class = "btn btn-primary " })
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ID }, new { @class = "btn btn-primary " })
+                <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
+            </td>
+        </tr>
+    }
+
+</table>

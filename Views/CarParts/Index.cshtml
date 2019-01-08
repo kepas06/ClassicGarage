@@ -4,10 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Twoje Części</h2>
+<h2 class="center">Twoje Części</h2>
 
-<p>
+<p class="center">
     @Html.ActionLink("Dodaj", "Create", null, new { @class = "btn btn-primary " })
+    <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
 </p>
 <table class="table">
     <tr>
@@ -58,7 +59,7 @@
             @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }, new { @class = "btn btn-primary " })
             @Html.ActionLink("Szczegóły", "Details", new { id = item.ID }, new { @class = "btn btn-primary " })
             @Html.ActionLink("Usuń", "Delete", new { id = item.ID }, new { @class = "btn btn-primary " })
-            <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
+            
         </td>
     </tr>
     }

@@ -125,3 +125,6 @@ C:\Users\Łukasz\source\repos\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarag
 C:\Users\Łukasz\source\repos\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.lel.resources
 C:\Users\Łukasz\source\repos\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.changeparts2.resources
 C:\Users\Łukasz\source\repos\ClassicGarage\ClassicGarage\obj\Debug\ClassicGarage.Migrations.changecarpartss.resources
+C:\Users\Łukasz\source\repos\ClassicGarage\ClassicGarage\bin\AdminLte.dll
+C:\Users\Łukasz\source\repos\ClassicGarage\ClassicGarage\bin\AdminLte.pdb
+C:\Users\Łukasz\source\repos\ClassicGarage\ClassicGarage\bin\AdminLte.xml

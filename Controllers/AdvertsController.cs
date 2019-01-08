@@ -92,7 +92,15 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", adverts.CarID);
+
+            var owner = db.Owner.Where(u => u.Email == User.Identity.Name);
+            int z = 0;
+            foreach (OwnerModel s in owner)
+            {
+                z = s.ID;
+            }
+            ViewBag.CarID = new SelectList(db.Car.Where(u => u.OwnerID == z), "ID", "Brand");
+
             return View(adverts);
         }
 

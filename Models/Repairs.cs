@@ -12,8 +12,9 @@ namespace ClassicGarage.Models
     {
 
         public int ID { get; set; }
-
+        [DisplayName("Część Naprawy")]
         public int? CarID { get; set; }
+
         [DisplayName("Nazwa")]
         public string Name { get; set; }
         [DisplayName("Opis")]

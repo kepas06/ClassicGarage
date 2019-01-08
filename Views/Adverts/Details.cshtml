@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Szczegóły Oferty</h2>
+<h2 class="center">Szczegóły Oferty</h2>
 
 <div>
 
@@ -64,7 +64,9 @@
     </dl>
 </div>
 <p>
+    @if (Model.Email == ViewBag.User)
+    {
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary " })
-    
+    }
     <a class="btn btn-primary" href="javascript:history.go(-1);" role="button">Wróć</a>
 </p>

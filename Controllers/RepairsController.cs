@@ -20,8 +20,22 @@ namespace ClassicGarage.Controllers
         // GET: Repairs
         public ActionResult Index()
         {
-            var repairs = db.Repairs.Include(r => r.Car);
-            return View(repairs.ToList());
+            //var owner = db.Owner.Where(u => u.Email == User.Identity.Name);
+            //int z = 0;
+            //foreach (OwnerModel s in owner)
+            //{
+            //    z = s.ID;
+            //}
+            //ViewBag.CarID = new SelectList(db.Car.Where(u => u.OwnerID == z), "ID", "Brand");
+
+            //var email = User.Identity.GetUserName();
+
+            //ViewBag.RepairID = new SelectList(db.Repairs.Where(u => u.Email == email), "ID", "Name");
+            ////var repairs = db.Repairs.Include(r => r.Car);
+
+            var repair = db.Repairs.Where(u => u.Email == User.Identity.Name);
+
+            return View(repair.ToList());
         }
 
         // GET: Repairs/Details/5
@@ -42,7 +56,14 @@ namespace ClassicGarage.Controllers
         // GET: Repairs/Create
         public ActionResult Create()
         {
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand");
+            var owner = db.Owner.Where(u => u.Email == User.Identity.Name);
+            int z = 0;
+            foreach (OwnerModel s in owner)
+            {
+                z = s.ID;
+            }
+            ViewBag.CarID = new SelectList(db.Car.Where(u => u.OwnerID == z), "ID", "Brand");
+           
             return View();
         }
 

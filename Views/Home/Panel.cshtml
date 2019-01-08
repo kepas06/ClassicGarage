@@ -3,24 +3,72 @@
     ViewBag.Title = "Panel";
 }
 
-<h2>Panel Użytkownika</h2>
+<h2 class="center">Panel Użytkownika</h2>
 @if (Request.IsAuthenticated)
 {
-    <div>
-        @Html.ActionLink("Twoje Dane", "Details", "Owners", new { id =ViewBag.OwnerID},null)
-    </div>
-    <div>
-        @Html.ActionLink("Samochody", "Index", "Cars")
-    </div>
-    <div>
-        @Html.ActionLink("Ogłoszenia", "Index", "Adverts")
-    </div>
-    <div>
-        @Html.ActionLink("Części", "Index", "CarParts")
-    </div>
-    <div>
-        @Html.ActionLink("Naprawy", "Index", "Repairs")
-    </div>
+
+
+
+    <a href="@Url.Action( "Details", "Owners", new { id = ViewBag.OwnerID }, null)">
+        <div class="square">
+            <div class="content">
+                Twoje Dane
+            </div>
+        </div>
+    </a>
+
+    <a href="@Url.Action( "Index", "Cars")">
+        <div class="square">
+            <div class="content">
+                Samochody
+            </div>
+        </div>
+    </a>
+
+    <a href="@Url.Action( "Index", "Adverts")">
+        <div class="square">
+            <div class="content">
+                Ogłoszenia
+            </div>
+        </div>
+    </a>
+
+    <a href="@Url.Action( "Index", "CarParts")">
+        <div class="square">
+            <div class="content">
+                Części
+            </div>
+        </div>
+    </a>
+    <a href="@Url.Action( "Index", "Repairs")">
+        <div class="square">
+            <div class="content">
+                Naprawy
+            </div>
+        </div>
+    </a>
+    <a href=" @Url.Action( "Costs", "Home")">
+        <div class="square">
+            <div class="content">
+                Koszty
+            </div>
+        </div>
+    </a>
+    @*<div>
+            @Html.ActionLink("Twoje Dane", "Details", "Owners", new { id = ViewBag.OwnerID }, null)
+        </div>
+        <div>
+            @Html.ActionLink("Samochody", "Index", "Cars")
+        </div>*@
+    @*<div>
+            @Html.ActionLink("Ogłoszenia", "Index", "Adverts")
+        </div>*@
+    @*<div>
+            @Html.ActionLink("Części", "Index", "CarParts")
+        </div>
+        <div>
+            @Html.ActionLink("Naprawy", "Index", "Repairs")
+        </div>*@
 
 }
 

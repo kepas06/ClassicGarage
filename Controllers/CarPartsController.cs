@@ -18,9 +18,12 @@ namespace ClassicGarage.Controllers
         private GarageContext db = new GarageContext();
 
         // GET: CarParts
-        public ActionResult Index()
+        public ActionResult Index(int ?id)
         {
-            return View(db.Parts.ToList());
+         
+            var e_mail = User.Identity.GetUserName();
+            var list = db.Parts.Where(p => p.Email == e_mail);
+            return View(list.ToList());
         }
 
         // GET: CarParts/Details/5
@@ -41,17 +44,18 @@ namespace ClassicGarage.Controllers
         // GET: CarParts/Create
         public ActionResult Create(int? id)
         {
-            //    ViewBag.num = id;
+           
+            var owner = db.Owner.Where(u => u.Email == User.Identity.Name);
+            int z = 0;
+            foreach (OwnerModel s in owner)
+            {
+                z = s.ID;
+            }
+            ViewBag.CarID = new SelectList(db.Car.Where(u => u.OwnerID == z), "ID", "Brand");
 
-            //var owner = db.Owner.Where(u => u.Email == User.Identity.Name);
-            //int z = 0;
-            //foreach (OwnerModel s in owner)
-            //{
-            //    z = s.ID;
-            //}
-            //ViewBag.CarID = new SelectList(db.Car.Where(u => u.OwnerID == z), "ID", "Brand");
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand");
-            ViewBag.RepairID = new SelectList(db.Repairs, "ID", "Name");
+            var email = User.Identity.GetUserName();
+      
+            ViewBag.RepairID = new SelectList(db.Repairs.Where(u => u.Email == email), "ID", "Name");
 
 
             return View();
@@ -80,6 +84,7 @@ namespace ClassicGarage.Controllers
         // GET: CarParts/Edit/5
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -89,6 +94,25 @@ namespace ClassicGarage.Controllers
             {
                 return HttpNotFound();
             }
+            var owner = db.Owner.Where(u => u.Email == User.Identity.Name);
+            int z = 0;
+            foreach (OwnerModel s in owner)
+            {
+                z = s.ID;
+             }
+            ViewBag.CarID = new SelectList(db.Car.Where(u => u.OwnerID == z), "ID", "Brand");
+
+            var email = User.Identity.GetUserName();
+            //var repair = db.Repairs.Where(u => u.Email == User.Identity.Name);
+            //int x = 0;
+            //foreach (RepairModel s in repair)
+            //{
+            //    x = s.ID;
+            //}
+            ViewBag.RepairID = new SelectList(db.Repairs.Where(u => u.Email == email), "ID", "Name");
+
+            //ViewBag.CarID = new SelectList(db.Car, "ID", "Brand");
+            //ViewBag.RepairID = new SelectList(db.Repairs, "ID", "Name");
             return View(carParts);
         }
 

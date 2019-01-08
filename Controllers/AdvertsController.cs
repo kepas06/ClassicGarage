@@ -45,7 +45,13 @@ namespace ClassicGarage.Controllers
         // GET: Adverts/Create
         public ActionResult Create()
         {
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand");
+            var owner = db.Owner.Where(u => u.Email == User.Identity.Name);
+            int z = 0;
+            foreach (OwnerModel s in owner)
+            {
+                z = s.ID;
+            }
+            ViewBag.CarID = new SelectList(db.Car.Where(u => u.OwnerID == z), "ID", "Brand");
             return View();
         }
 
@@ -75,7 +81,13 @@ namespace ClassicGarage.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", adverts.CarID);
+
+
+            //var email = User.Identity.GetUserName();
+
+            //ViewBag.RepairID = new SelectList(db.Repairs.Where(u => u.Email == email), "ID", "Name");
+
+            //ViewBag.CarID = new SelectList(db.Car, "ID", "Brand", adverts.CarID);
             return View(adverts);
 
             }
